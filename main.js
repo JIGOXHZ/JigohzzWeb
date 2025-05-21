@@ -7,7 +7,7 @@ let animations = []; // array untuk menyimpan instance animasi lottie
 let animPlaying = false; // status animasi
 
 // === Lottie Animation dengan Intersection Observer ===
-window.onload = function() {
+window.onload = function () {
   const animConfigs = [
     { id: 'lottie-icon', path: 'centang.json' },
     { id: 'lottie-iconjoo', path: 'centang.json' },
@@ -29,12 +29,13 @@ window.onload = function() {
     { id: 'lulsec32-android-64lulsec', path: 'arrow.json' },
     { id: 'lulsecother1-android-64lulsec', path: 'arrow.json' },
     { id: 'lulsecother2-android-64lulsec', path: 'arrow.json' },
-{ id: 'lulsecother3-android-64lulsec', path: 'arrow.json' },
-{ id: 'lulsecother4-android-64lulsec', path: 'arrow.json' },
-{ id: 'lulsecother5-android-64lulsec', path: 'arrow.json' },
-{ id: 'lulsecother6-android-64lulsec', path: 'arrow.json' },
-{ id: 'lulsecother7-android-64lulsec', path: 'arrow.json' },
+    { id: 'lulsecother3-android-64lulsec', path: 'arrow.json' },
+    { id: 'lulsecother4-android-64lulsec', path: 'arrow.json' },
+    { id: 'lulsecother5-android-64lulsec', path: 'arrow.json' },
+    { id: 'lulsecother6-android-64lulsec', path: 'arrow.json' },
+    { id: 'lulsecother7-android-64lulsec', path: 'arrow.json' },
     { id: 'lottie-android-2', path: 'arrow.json' },
+    { id: '32jugoxhzz-android-bit', path: 'arrow.json' },
     { id: 'lottie-android-3', path: 'arrow.json' },
     { id: 'lottie-android-4', path: 'arrow.json' },
     { id: 'lottie-android-5', path: 'arrow.json' },
@@ -54,14 +55,14 @@ window.onload = function() {
     { id: 'lottie-android-other2', path: 'arrow.json' },
     { id: 'lottie-android-other3', path: 'arrow.json' },
     { id: 'lottie-joo', path: 'arrow.json' },
-{ id: 'lottie-lulsec1', path: 'arrow.json' },
-{ id: 'lottie-lulsec2', path: 'arrow.json' },
-{ id: 'lottie-lulsec3', path: 'arrow.json' },
-{ id: 'lottie-lulsec4', path: 'arrow.json' },
-{ id: 'lottie-lulsec5', path: 'arrow.json' },
-{ id: 'lottie-lulsec6', path: 'arrow.json' },
-{ id: 'lottie-lulsec7', path: 'arrow.json' },
-{ id: 'lottie-lulsec8', path: 'arrow.json' },
+    { id: 'lottie-lulsec1', path: 'arrow.json' },
+    { id: 'lottie-lulsec2', path: 'arrow.json' },
+    { id: 'lottie-lulsec3', path: 'arrow.json' },
+    { id: 'lottie-lulsec4', path: 'arrow.json' },
+    { id: 'lottie-lulsec5', path: 'arrow.json' },
+    { id: 'lottie-lulsec6', path: 'arrow.json' },
+    { id: 'lottie-lulsec7', path: 'arrow.json' },
+    { id: 'lottie-lulsec8', path: 'arrow.json' },
     { id: 'lottie-joo2', path: 'arrow.json' },
     { id: 'lottie-joo3', path: 'arrow.json' },
     { id: 'lottie-joo4', path: 'arrow.json' },
@@ -72,6 +73,7 @@ window.onload = function() {
     { id: 'lottie-joo9', path: 'arrow.json' },
     { id: 'lottie-joo10', path: 'arrow.json' },
     { id: 'lottie-android-joo3', path: 'arrow.json' },
+    { id: 'notejigoxhzz-icon-other', path: 'note.json' },
     { id: 'lottie-android-other4', path: 'arrow.json' }
   ];
 
@@ -90,7 +92,7 @@ window.onload = function() {
     return null;
   }).filter(a => a !== null);
 
-  // Intersection Observer untuk otomatis play/stop saat elemen di viewport
+  // Observer
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const match = animations.find(a => a.element === entry.target);
@@ -106,40 +108,36 @@ window.onload = function() {
 
   animations.forEach(({ element }) => observer.observe(element));
 
-  // Mulai play animasi saat load pertama kali
+  // Auto play saat awal load
   animPlaying = true;
   animations.forEach(({ anim }) => anim.play());
 }
 
-// Fungsi pause semua animasi
+// Pause semua animasi
 function pauseAllAnimations() {
   animPlaying = false;
   animations.forEach(({ anim }) => anim.pause());
 }
 
-// Fungsi play semua animasi (hanya jika menu tertutup)
+// Play semua animasi
 function playAllAnimations() {
   animPlaying = true;
   animations.forEach(({ anim }) => anim.play());
 }
 
-// Handle klik hamburger
+// Klik hamburger
 hamburger.addEventListener('click', () => {
-  pauseAllAnimations();  // pause dulu
+  pauseAllAnimations();
 
   sideMenu.classList.toggle('active');
   overlay.classList.toggle('active');
   hamburger.classList.toggle('active');
 
-  // Delay sedikit sesuai durasi transisi CSS menu (misal 300ms)
   setTimeout(() => {
-    // Jika menu aktif (terbuka) play animasi, kalau tidak pause
     if (sideMenu.classList.contains('active')) {
       playAllAnimations();
     } else {
       pauseAllAnimations();
-      // Tapi karena menu tertutup, animasi boleh jalan lagi
-      // Jadi kita play lagi setelah delay lebih kecil
       setTimeout(() => {
         playAllAnimations();
       }, 100);
@@ -147,7 +145,7 @@ hamburger.addEventListener('click', () => {
   }, 300);
 });
 
-// Handle klik overlay (tutup menu)
+// Klik overlay
 overlay.addEventListener('click', () => {
   pauseAllAnimations();
 

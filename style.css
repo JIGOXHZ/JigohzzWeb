@@ -440,6 +440,13 @@ main {
   margin-right: -5px;
 }
 
+.lottie-iconnote {
+  width: 37px;
+  height: 37px;
+  margin-left: -13px;
+  margin-right: -15px;
+}
+
 .quote-box {
   position: relative;
   background-color: rgba(255, 165, 0, 0.1); /* orange transparan */
@@ -447,6 +454,26 @@ main {
   margin-top: -17px;
   padding: 0px 10px 0px 5px;
   color: #fff;
+}
+
+.quote-boxakhir {
+  position: relative;
+  background-color: rgba(255, 165, 0, 0.1); /* orange transparan */
+  border-radius: 6px;
+  margin-top: -17px;
+  padding: 0px 10px 0px 5px;
+  color: #fff;
+  margin-bottom: 9px;
+}
+
+.quote-boxnote {
+  position: relative;
+  background-color: rgba(255, 165, 0, 0.1); /* orange transparan */
+  border-radius: 6px;
+  margin-top: -17px;
+  padding: 0px 10px 0px 5px;
+  color: #fff;
+  margin-top: -6px;
 }
 
 .quote-line {
@@ -477,6 +504,20 @@ main {
   display: flex;
   align-items: center;
   padding: 0;
+}
+
+.quote-contentnote p {
+  padding: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.quote-itemnote {
+  display: flex;
+  align-items: center;
+  padding: 5px;
 }
 
 .quote-item + .quote-item {
@@ -516,4 +557,62 @@ main {
 .paused {
   pointer-events: none;
   opacity: 0.4;
+}
+
+.like-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #444;
+  padding: 6px;
+  border-radius: 50%; /* awal bulat */
+  width: 35px;  /* ukuran bulat awal */
+  height: 35px;
+  cursor: pointer;
+  transition:
+    width 0.4s ease,
+    border-radius 0.4s ease,
+    background-color 0.3s;
+  overflow: hidden;
+}
+
+.like-container.liked {
+  width: 60px; /* melebar */
+  border-radius: 30px; /* jadi kapsul */
+  padding: 6px 10px;
+  background-color: #666;
+}
+
+.like-icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: margin-right 0.3s ease;
+}
+
+.like-container.liked .like-icon {
+  margin-right: 8px; /* beri jarak ke angka saat melebar */
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffa500;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* supaya gak diklik */
+  white-space: nowrap;
+}
+
+.like-count.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hidden {
+  display: none;
 }

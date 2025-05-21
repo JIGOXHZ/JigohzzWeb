@@ -107,7 +107,7 @@
 </div>
   <div class="app-third-nameswitch">
     <div class="lottie-iconswitch" id="lottie-icon-other"></div>
-        <h3>OTHER SUPPORT</h3>
+        <h3>FEATURE</h3>
   </div>
 <div class="quote-box">
   <div class="quote-line"></div>
@@ -145,6 +145,10 @@
   <a href="https://github.com/JIGOXHZ/PenyimpananBahan/releases/download/3.5.0/Amy.Virtual.Pro_3.5.0.R2.apk" class="download-button" download>
     Download APK
   </a>
+</div>
+<div class="like-container">
+  <img src="like.png" alt="Like" class="like-icon like-button" data-app-id="virtualamy" />
+  <span id="like-count-virtualamy" class="like-count">0</span>
 </div>
 </section>
 <section class="dark-box">
@@ -225,7 +229,7 @@
 </div>
   <div class="app-third-nameswitch">
     <div class="lottie-iconswitch" id="lottie-android-switchjoo1"></div>
-        <h3>OTHER SUPPORT</h3>
+        <h3>FEATURE</h3>
   </div>
 <div class="quote-box">
   <div class="quote-line"></div>
@@ -263,6 +267,10 @@
   <a href="https://github.com/JIGOXHZ/PenyimpananBahan/releases/download/1.1/ORIGINAL.JOO.64_1.1.apk" class="download-button" download>
     Download APK
   </a>
+</div>
+<div class="like-container">
+  <img src="like.png" alt="Like" class="like-icon like-button" data-app-id="virtualjoo" />
+  <span id="like-count-virtualjoo" class="like-count">0</span>
 </div>
 </section>
 <section class="dark-box">
@@ -339,7 +347,7 @@
 </div>
   <div class="app-third-nameswitch">
     <div class="lottie-iconswitch" id="lulsec-icon-otherlul"></div>
-        <h3>OTHER SUPPORT</h3>
+        <h3>FEATURE</h3>
   </div>
 <div class="quote-box">
   <div class="quote-line"></div>
@@ -382,6 +390,10 @@
     Download APK
   </a>
 </div>
+<div class="like-container">
+  <img src="like.png" alt="Like" class="like-icon like-button" data-app-id="lulzsecvirtual" />
+  <span id="like-count-lulzsecvirtual" class="like-count">0</span>
+</div>
 </section>
   </main>
 <footer class="main-footer">
@@ -407,7 +419,14 @@
 <!-- Lottie Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
 
-<!-- Script kamu -->
+<!-- Firebase (wajib sebelum firebase-like.js) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+<!-- Script like (harus setelah Firebase) -->
+<script src="firebase-like.js"></script>
+
+<!-- Script kamu (main.js) -->
 <script src="main.js"></script>
 </body>
 </html>
